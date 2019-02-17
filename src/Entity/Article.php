@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
 class Article
@@ -70,5 +71,15 @@ class Article
         $this->creationDate = $creationDate;
 
         return $this;
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     * @throws \Exception
+     */
+    public function onPrePersist()
+    {
+        $this->creationDate = new \DateTime("now");
     }
 }
