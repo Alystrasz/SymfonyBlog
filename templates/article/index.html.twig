@@ -12,23 +12,21 @@
         }
     </style>
 
-    <div class="container">
-        <div class="row">
+    <div class="row">
 
-            {% for article in articles %}
-                <div class="col-sm-6" style="padding:15px">
-                    <div class="card">
-                        <div class="card-header">
-                            Created on {{ article.creationDate ? article.creationDate|date('d-m-Y H:i:s') : '' }}
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ article.title }}</h5>
-                            <p class="card-text wrap">{{ article.text }}</p>
-                            <a href="/article/{{ article.id }}">Read full article</a>
-                        </div>
+        {% for article in articles %}
+            <div class="col-sm-6" style="padding:15px">
+                <div class="card">
+                    <div class="card-header">
+                        Created on {{ article.creationDate ? article.creationDate|date('d-m-Y H:i:s') : '' }}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title }}</h5>
+                        <p class="card-text wrap">{{ article.text }}</p>
+                        <a href="/article/{{ article.id }}">Read full article</a>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

@@ -3,21 +3,18 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1 style="padding:20px">{{ article.title }}</h1>
-        <div class="card" style="margin:20px">
-            <div class="card-header">
-                Created on {{ article.creationDate ? article.creationDate|date('d-m-Y H:i:s') : '' }}
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{ article.text }}</p>
-            </div>
-            <div class="card-footer">
-                <a class="btn btn-outline-primary" href="{{ path('article_index') }}">Back to list</a>
-                <a class="btn btn-outline-primary" href="{{ path('article_edit', {'id': article.id}) }}">Edit</a>
-                {{ include('article/_delete_form.html.twig') }}
-            </div>
+    <h1 style="padding:20px">{{ article.title }}</h1>
+    <div class="card" style="margin:20px">
+        <div class="card-header">
+            Created on {{ article.creationDate ? article.creationDate|date('d-m-Y H:i:s') : '' }}
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ article.text }}</p>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-outline-primary" href="{{ path('article_index') }}">Back to list</a>
+            <a class="btn btn-outline-primary" href="{{ path('article_edit', {'id': article.id}) }}">Edit</a>
+            {{ include('article/_delete_form.html.twig') }}
         </div>
     </div>
-    
 {% endblock %}
