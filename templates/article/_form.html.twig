@@ -1,4 +1,21 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="text-danger">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+        </div>
+        {{ form_widget(form.title) }}
+    </div>
+
+    <div class="input-group mb-3" style="margin-bottom:20px;">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Article content</span>
+        </div>
+        {{ form_widget(form.text, { 'attr': {'value': 'content'} }) }}
+    </div>
+
+    <button class="btn btn-outline-primary">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
